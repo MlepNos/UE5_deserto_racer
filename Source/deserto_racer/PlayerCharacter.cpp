@@ -70,7 +70,7 @@ void APlayerCharacter::Move(const FInputActionValue& Value)
 	// Y value represents W or S keys 
 	// if the value is 0 its not pressed
 	FVector2D MoveActionValue = Value.Get<FVector2D>();
-	GEngine->AddOnScreenDebugMessage(1, 10.0f, FColor::White, MoveActionValue.ToString());
+	//GEngine->AddOnScreenDebugMessage(1, 10.0f, FColor::White, MoveActionValue.ToString());
 
 
 	if (CanMove)
@@ -92,10 +92,7 @@ void APlayerCharacter::Move(const FInputActionValue& Value)
 				FinalMovementSpeed *= 0.5f;
 			}
 
-			GEngine->AddOnScreenDebugMessage(
-				-1, 10.0f, FColor::Blue,
-				FString::Printf(TEXT("FinalMovementSpeed: %.2f"), FinalMovementSpeed)
-			);
+			//GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue,FString::Printf(TEXT("FinalMovementSpeed: %.2f"), FinalMovementSpeed));
 
 			FVector CurrentLocation = GetActorLocation();
 			FVector DistanceToMove = GetActorUpVector() * FinalMovementSpeed * MoveActionValue.Y * DeltaTime;

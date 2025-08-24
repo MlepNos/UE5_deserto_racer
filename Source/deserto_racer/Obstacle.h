@@ -17,11 +17,15 @@ class DESERTO_RACER_API AObstacle : public AActor
 	
 public:	
 
+	// For Obstacle
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UCapsuleComponent* CapsuleComp;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UPaperSpriteComponent* ObstacleSprite;
+
+
+
 
 	AObstacle();
 
@@ -30,5 +34,12 @@ public:
 
 
 	virtual void Tick(float DeltaTime) override;
+
+
+
+	// For Obstacle Collision
+	UFUNCTION()
+	void OverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool FromSweep, const FHitResult& SweepResult);
+	// (1:the component that got overlapped which is our capsule component, 2: actor that we collide which is the player)
 
 };
