@@ -8,6 +8,9 @@
 #include "Components/CapsuleComponent.h"
 #include "PaperSpriteComponent.h"
 
+// For time resetting
+#include "MyGameMode.h"
+
 #include "Obstacle.generated.h"
 
 UCLASS()
@@ -24,15 +27,15 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UPaperSpriteComponent* ObstacleSprite;
 
+	// For time resetting
+	AMyGameMode* MyGameMode;
+
+
 
 
 
 	AObstacle();
-
-
 	virtual void BeginPlay() override;
-
-
 	virtual void Tick(float DeltaTime) override;
 
 

@@ -2,8 +2,11 @@
 
 #include "Obstacle.h"
 
-
+// For getting player
 #include "PlayerCharacter.h"
+
+// For Resetting the Game
+#include "Kismet/GameplayStatics.h"
 
 AObstacle::AObstacle()
 {
@@ -29,6 +32,9 @@ void AObstacle::BeginPlay()
 	Super::BeginPlay();
 
 	CapsuleComp->OnComponentBeginOverlap.AddDynamic(this, &AObstacle::OverlapBegin);
+
+	AGameModeBase* GameMode = UGameplayStatics::GetGameMode(GetWorld());
+	 MyGameMode = Cast<AMyGameMode>(GameMode);
 	
 }
 
@@ -50,6 +56,7 @@ void AObstacle::OverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* O
 		{
 			Player->CanMove = false;
 
+			MyGameMode->ResetLevel(false);
 		}
 	}
 }
