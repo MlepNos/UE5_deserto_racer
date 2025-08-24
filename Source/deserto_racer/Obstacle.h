@@ -11,6 +11,10 @@
 // For time resetting
 #include "MyGameMode.h"
 
+
+// For Sound
+#include "Sound/SoundBase.h"
+
 #include "Obstacle.generated.h"
 
 UCLASS()
@@ -30,7 +34,12 @@ public:
 	// For time resetting
 	AMyGameMode* MyGameMode;
 
+	// For Sound
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USoundBase* HitSound;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsFinishLine= false;
 
 
 
